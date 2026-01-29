@@ -69,7 +69,7 @@ export function StudioCanvas() {
             </p>
             <p className="text-xs text-muted-foreground/60">or</p>
           </div>
-          <Button variant="outline" size="sm" onClick={openFilePicker}>
+          <Button variant="outline" size="sm" className="z-10" onClick={openFilePicker}>
             Browse Files
           </Button>
         </div>

@@ -13,6 +13,7 @@ import {
 import { useStudioStore } from "@/hooks/use-studio-store";
 import { useClipboard } from "@/hooks/use-clipboard";
 import { useCssGenerator } from "@/hooks/use-css-generator";
+import { usePlatform } from "@/hooks/use-platform";
 import { useState, useEffect } from "react";
 
 /* ------------------------------------------------------------------ */
@@ -88,6 +89,7 @@ export function StudioHeader() {
   const openExportDialog = useStudioStore((s) => s.openExportDialog);
   const { copy } = useClipboard();
   const { fullCss } = useCssGenerator();
+  const { formatShortcut } = usePlatform();
 
   return (
     <header
@@ -104,13 +106,13 @@ export function StudioHeader() {
         <TooltipProvider delayDuration={300}>
           <TooltipButton
             icon={Undo2}
-            tooltip="Undo (Cmd+Z)"
+            tooltip={`Undo (${formatShortcut("Z")})`}
             onClick={undo}
             disabled={!canUndo}
           />
           <TooltipButton
             icon={Redo2}
-            tooltip="Redo (Cmd+Shift+Z)"
+            tooltip={`Redo (${formatShortcut("Shift", "Z")})`}
             onClick={redo}
             disabled={!canRedo}
           />
@@ -119,12 +121,12 @@ export function StudioHeader() {
 
           <TooltipButton
             icon={Copy}
-            tooltip="Copy CSS (Cmd+Shift+C)"
+            tooltip={`Copy CSS (${formatShortcut("Shift", "C")})`}
             onClick={() => copy(fullCss)}
           />
           <TooltipButton
             icon={Download}
-            tooltip="Export (Cmd+E)"
+            tooltip={`Export (${formatShortcut("E")})`}
             onClick={() => openExportDialog()}
           />
 
