@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Maskit
+
+A professional CSS mask effects studio with real-time preview and code generation. Create stunning visual effects using CSS masks, filters, clip-paths, and gradients.
+
+## Features
+
+- **CSS Mask Effects** - Create complex mask compositions with multiple layers
+- **Filter Controls** - Apply blur, brightness, contrast, grayscale, and more
+- **Clip-Path Editor** - Design custom clip-path shapes with ease
+- **Gradient Builder** - Build linear, radial, and conic gradients with intuitive controls
+- **Real-Time Preview** - See changes instantly on the canvas
+- **Code Generation** - Export production-ready CSS code
+- **Blend Modes** - Combine layers with various blend modes
+- **Preset Library** - Quick-start with pre-built effect presets
+- **Dark/Light Theme** - Comfortable editing in any environment
+- **Image Export** - Export your creations as images
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org/) - React framework
+- [React 19](https://react.dev/) - UI library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS 4](https://tailwindcss.com/) - Styling
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management
+- [Radix UI](https://www.radix-ui.com/) - Accessible components
+- [Motion](https://motion.dev/) - Animations
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.17 or later
+- pnpm (recommended) or npm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Clone the repository
+git clone https://github.com/yourusername/maskit.git
+cd maskit
+
+# Install dependencies
+pnpm install
+
+# Start the development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to start creating.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+pnpm start
+```
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. **Upload an Image** - Start by uploading your base image
+2. **Add Mask Layers** - Create gradient masks to control visibility
+3. **Apply Filters** - Enhance with CSS filters
+4. **Set Clip-Path** - Define custom shapes
+5. **Preview & Adjust** - Fine-tune in real-time
+6. **Export Code** - Copy the generated CSS for your project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
