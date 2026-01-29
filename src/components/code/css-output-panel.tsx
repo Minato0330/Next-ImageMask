@@ -76,7 +76,7 @@ export function CssOutputPanel() {
 
 function CodeBlock({ code }: { code: string }) {
   return (
-    <pre className="bg-[var(--surface-sunken)] p-4 font-mono text-xs leading-relaxed text-foreground/70">
+    <pre className="h-full min-h-full overflow-auto bg-[var(--surface-sunken)] p-4 font-mono text-xs leading-relaxed text-foreground/70 scrollbar-none">
       {code}
     </pre>
   );

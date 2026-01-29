@@ -14,9 +14,6 @@ import { useStudioStore } from "@/hooks/use-studio-store";
 import { useClipboard } from "@/hooks/use-clipboard";
 import { useCssGenerator } from "@/hooks/use-css-generator";
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "motion/react";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
 
 /* ------------------------------------------------------------------ */
 /*  TooltipButton — reduces per-button boilerplate                    */
@@ -68,31 +65,11 @@ function ThemeToggleButton() {
           size="icon-sm"
           onClick={() => setTheme(isDark ? "light" : "dark")}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            {isDark ? (
-              <motion.span
-                key="sun"
-                initial={{ opacity: 0, rotate: -90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: 90 }}
-                transition={{ duration: 0.2, ease: EASE }}
-                className="flex items-center justify-center"
-              >
-                <Sun className="h-4 w-4" />
-              </motion.span>
-            ) : (
-              <motion.span
-                key="moon"
-                initial={{ opacity: 0, rotate: 90 }}
-                animate={{ opacity: 1, rotate: 0 }}
-                exit={{ opacity: 0, rotate: -90 }}
-                transition={{ duration: 0.2, ease: EASE }}
-                className="flex items-center justify-center"
-              >
-                <Moon className="h-4 w-4" />
-              </motion.span>
-            )}
-          </AnimatePresence>
+          {isDark ? (
+            <Sun className="h-4 w-4" />
+          ) : (
+            <Moon className="h-4 w-4" />
+          )}
         </Button>
       </TooltipTrigger>
       <TooltipContent side="bottom">Toggle theme</TooltipContent>
