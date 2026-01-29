@@ -118,14 +118,9 @@ export function StudioHeader() {
       className="flex h-12 shrink-0 items-center justify-between border-b border-border/50 bg-background px-4"
     >
       {/* ---- Brand ---- */}
-      <div className="flex items-center gap-2">
-        <span className="font-mono text-[13px] font-semibold tracking-tight text-foreground">
-          maskit
-        </span>
-        <span className="rounded-md bg-foreground/[0.06] px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
-          studio
-        </span>
-      </div>
+      <span className="font-mono text-lg font-semibold tracking-tight text-foreground">
+        maskit
+      </span>
 
       {/* ---- Actions ---- */}
       <div className="flex items-center gap-0.5">
