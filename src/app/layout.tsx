@@ -32,11 +32,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Maskit" }],
   creator: "Maskit",
-  metadataBase: new URL("https://maskit.dev"),
+  metadataBase: new URL("https://maskit.sachi.dev"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://maskit.dev",
+    url: "https://maskit.sachi.dev",
     siteName: "Maskit",
     title: "Maskit — CSS Mask Effects Studio",
     description:
