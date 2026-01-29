@@ -2,7 +2,6 @@
 
 import { useCallback } from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { AnimatedTabIndicator } from "@/components/ui/animated-tab-indicator";
 import { CopyButton } from "./copy-button";
 import { useCssGenerator } from "@/hooks/use-css-generator";
@@ -34,11 +33,11 @@ export function CssOutputPanel() {
   );
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full min-h-0 flex-col">
       <TabsPrimitive.Root
         value={cssOutputTab}
         onValueChange={(v) => setCssOutputTab(v as CssOutputTab)}
-        className="flex h-full flex-col"
+        className="flex h-full min-h-0 flex-col"
       >
         <div className="flex items-center justify-between border-b border-border/50 px-4">
           <TabsPrimitive.List className="relative flex h-9 items-end gap-1">
@@ -66,9 +65,9 @@ export function CssOutputPanel() {
           <CopyButton text={getCssForTab(cssOutputTab)} />
         </div>
 
-        <ScrollArea className="flex-1">
+        <div className="min-h-0 flex-1 overflow-auto scrollbar-none">
           <CodeBlock code={getCssForTab(cssOutputTab)} />
-        </ScrollArea>
+        </div>
       </TabsPrimitive.Root>
     </div>
   );
@@ -76,7 +75,7 @@ export function CssOutputPanel() {
 
 function CodeBlock({ code }: { code: string }) {
   return (
-    <pre className="h-full min-h-full overflow-auto bg-[var(--surface-sunken)] p-4 font-mono text-xs leading-relaxed text-foreground/70 scrollbar-none">
+    <pre className="bg-(-surface-sunken) p-4 font-mono text-xs leading-relaxed text-foreground/70">
       {code}
     </pre>
   );

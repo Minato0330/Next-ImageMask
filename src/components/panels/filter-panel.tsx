@@ -85,13 +85,9 @@ export function FilterPanel() {
         )}
       </div>
 
-      <div className="rounded-lg border border-border/50 bg-card/30">
-        <div className="px-3 py-2.5">
-          <span className="tracking-wide uppercase text-[10px] font-semibold text-muted-foreground">Blend Mode</span>
-        </div>
-        <div className="px-3 pb-3">
-          <BlendModePanel />
-        </div>
+      <div className="rounded-lg border border-border/50 bg-card/30 flex items-center justify-between pl-3 py-1">
+        <span className="tracking-wide uppercase text-[10px] font-semibold text-muted-foreground">Blend Mode</span>
+        <BlendModePanel className="select-ghost border-none bg-transparent hover:bg-transparent dark:!bg-transparent dark:hover:!bg-transparent focus-visible:ring-transparent focus-visible:border-transparent" />
       </div>
 
       <Button

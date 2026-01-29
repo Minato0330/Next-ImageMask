@@ -355,6 +355,13 @@ input[type="number"] {
   transform: scale(0.98);
 }
 
+[data-slot="select-trigger"].select-ghost,
+[data-slot="select-trigger"].select-ghost:hover,
+[data-slot="select-trigger"].select-ghost:active {
+  box-shadow: none;
+  transform: none;
+}
+
 [data-slot="select-content"] {
   box-shadow: var(--shadow-lg);
   border-color: var(--border-default);

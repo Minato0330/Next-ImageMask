@@ -10,8 +10,9 @@ import {
 import { useStudioStore } from "@/hooks/use-studio-store";
 import { BLEND_MODES } from "@/lib/constants";
 import type { BlendMode } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
-export function BlendModePanel() {
+export function BlendModePanel({ className }: { className?: string }) {
   const blendMode = useStudioStore((s) => s.blendMode);
   const setBlendMode = useStudioStore((s) => s.setBlendMode);
 
@@ -20,7 +21,7 @@ export function BlendModePanel() {
       value={blendMode}
       onValueChange={(v) => setBlendMode(v as BlendMode)}
     >
-      <SelectTrigger className="h-8 text-xs" size="sm">
+      <SelectTrigger className={cn("h-8 text-xs", className)} size="sm">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
