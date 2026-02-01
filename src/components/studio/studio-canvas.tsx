@@ -83,7 +83,6 @@ export function StudioCanvas() {
         onChange={handleInputChange}
       />
 
-      {/* Zoom controls */}
       <div data-slot="zoom-controls" className="absolute bottom-3 right-3 flex items-center gap-0.5 rounded-lg border border-border bg-background/90 p-0.5 backdrop-blur-md">
         <TooltipProvider delayDuration={300}>
           <Tooltip>
@@ -95,7 +94,7 @@ export function StudioCanvas() {
             <TooltipContent side="top">Zoom out (-)</TooltipContent>
           </Tooltip>
 
-          <span className="min-w-[3rem] text-center font-mono text-[11px] text-muted-foreground">
+          <span className="min-w-12 text-center font-mono text-[11px] text-muted-foreground">
             {Math.round(zoom * 100)}%
           </span>
 

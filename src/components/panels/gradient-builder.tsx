@@ -40,7 +40,6 @@ export function GradientBuilder({ gradient, onChange }: GradientBuilderProps) {
   const stops = gradient.stops;
   const [selectedStopId, setSelectedStopId] = useState<string | null>(null);
 
-  // Reset selection when gradient identity changes or selected stop is removed
   useEffect(() => {
     if (selectedStopId && !stops.find((s) => s.id === selectedStopId)) {
       setSelectedStopId(null);
@@ -116,8 +115,6 @@ export function GradientBuilder({ gradient, onChange }: GradientBuilderProps) {
     setSelectedStopId(id);
   }, []);
 
-  // --- Utility actions ---
-
   const reversePositions = useCallback(() => {
     const newStops = stops.map((s) => ({ ...s, position: 100 - s.position }));
     onChange({ ...gradient, stops: newStops } as MaskImage);
@@ -144,13 +141,11 @@ export function GradientBuilder({ gradient, onChange }: GradientBuilderProps) {
     onChange({ ...gradient, stops: newStops } as MaskImage);
   }, [stops, gradient, onChange]);
 
-  // Sorted stops for display
   const sortedStops = useMemo(
     () => stops.slice().sort((a, b) => a.position - b.position),
     [stops]
   );
 
-  // Sibling swatch colors for the color picker
   const swatchColors = useMemo(
     () => stops.map((s) => s.color).filter((c) => c.startsWith("#")),
     [stops]
@@ -258,7 +253,6 @@ export function GradientBuilder({ gradient, onChange }: GradientBuilderProps) {
         onDeleteStop={removeStop}
       />
 
-      {/* Utility toolbar */}
       <div className="flex items-center justify-between">
         <span className="text-xs text-muted-foreground">
           Stops ({stops.length})
@@ -303,7 +297,6 @@ export function GradientBuilder({ gradient, onChange }: GradientBuilderProps) {
         </div>
       </div>
 
-      {/* Stop editors with layout animation */}
       <div className="space-y-1.5">
         <AnimatePresence mode="popLayout" initial={false}>
           {sortedStops.map((stop) => (

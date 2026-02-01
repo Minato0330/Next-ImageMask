@@ -188,7 +188,6 @@ export function GradientColorPicker({
           type="button"
           className="relative h-6 w-6 shrink-0 cursor-pointer overflow-hidden rounded border border-border/50 hover:shadow-sm"
         >
-          {/* Checkerboard behind for transparency */}
           <span
             className="absolute inset-0"
             style={{
@@ -209,7 +208,6 @@ export function GradientColorPicker({
         align="start"
         sideOffset={6}
       >
-        {/* SL Canvas */}
         <div className="relative" style={{ width: SL_WIDTH, height: SL_HEIGHT }}>
           <canvas
             ref={setCanvasRef}
@@ -218,7 +216,6 @@ export function GradientColorPicker({
             className="block cursor-crosshair rounded"
             onMouseDown={handleCanvasMouseDown}
           />
-          {/* Cursor indicator */}
           <div
             className="pointer-events-none absolute h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white"
             style={{
@@ -229,7 +226,6 @@ export function GradientColorPicker({
           />
         </div>
 
-        {/* Hue strip */}
         <div>
           <input
             type="range"
@@ -241,7 +237,6 @@ export function GradientColorPicker({
           />
         </div>
 
-        {/* Opacity strip (only when onOpacityChange is provided) */}
         {onOpacityChange && (
           <div className="relative h-3 w-full overflow-hidden rounded-full">
             <span
@@ -268,7 +263,6 @@ export function GradientColorPicker({
               className="absolute inset-0 h-full w-full cursor-pointer appearance-none bg-transparent opacity-0"
               style={{ opacity: 0 }}
             />
-            {/* Visible thumb indicator */}
             <div
               className="pointer-events-none absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white"
               style={{
@@ -279,12 +273,11 @@ export function GradientColorPicker({
           </div>
         )}
 
-        {/* Hex input + opacity readout */}
         <div className="flex items-center gap-2">
           <Input
             value={hexInput}
             onChange={handleHexInputChange}
-            className={`h-7 w-[7.5rem] font-mono text-xs ${!hexValid ? "border-destructive" : ""}`}
+            className={`h-7 w-30 font-mono text-xs ${!hexValid ? "border-destructive" : ""}`}
             maxLength={7}
           />
           {onOpacityChange && (
@@ -294,7 +287,6 @@ export function GradientColorPicker({
           )}
         </div>
 
-        {/* Quick swatches */}
         <div className="flex flex-wrap gap-1" style={{ maxWidth: SL_WIDTH }}>
           {allSwatches.map((swatch) => (
             <button

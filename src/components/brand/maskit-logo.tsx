@@ -12,11 +12,8 @@ interface MaskitLogoProps {
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const M_PATHS = [
-  // Left leg
   "M 3 24 L 3 4 L 8 4 L 8 24 Z",
-  // Center chevron
   "M 3 4 L 14 18 L 25 4 L 20 4 L 14 11 L 8 4 Z",
-  // Right leg
   "M 20 24 L 20 4 L 25 4 L 25 24 Z",
 ];
 
@@ -43,7 +40,6 @@ export function MaskitLogo({
       role="img"
     >
       <defs>
-        {/* Clip reveal: rect sweeps left → right */}
         <clipPath id={clipId}>
           <motion.rect
             x={0}
@@ -54,7 +50,6 @@ export function MaskitLogo({
             transition={{ duration: 0.7, ease: EASE }}
           />
         </clipPath>
-        {/* Shape clip for shimmer */}
         <clipPath id={shapeClipId}>
           {M_PATHS.map((d, i) => (
             <path key={i} d={d} />
@@ -63,7 +58,6 @@ export function MaskitLogo({
       </defs>
 
       <g clipPath={`url(#${clipId})`}>
-        {/* M letter segments — staggered fade-up */}
         {M_PATHS.map((d, i) => (
           <motion.path
             key={i}
@@ -78,7 +72,6 @@ export function MaskitLogo({
           />
         ))}
 
-        {/* Hover shimmer — sweeps across, clipped to M shape */}
         <g clipPath={`url(#${shapeClipId})`}>
           <motion.rect
             y={0}

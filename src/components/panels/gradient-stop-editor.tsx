@@ -35,7 +35,6 @@ export function GradientStopEditor({
       }`}
       onClick={onSelect}
     >
-      {/* Row 1: Color picker, hex, position, delete */}
       <div className="flex items-center gap-2">
         <GradientColorPicker
           color={stop.color.startsWith("#") ? stop.color : "#000000"}
@@ -80,7 +79,6 @@ export function GradientStopEditor({
         </Button>
       </div>
 
-      {/* Row 2: Opacity slider full width */}
       <div className="flex items-center gap-2">
         <span className="shrink-0 text-[11px] text-muted-foreground">Opacity</span>
         <Slider

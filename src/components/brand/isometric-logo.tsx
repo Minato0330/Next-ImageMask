@@ -10,28 +10,21 @@ interface IsometricLogoProps {
 export function IsometricLogo({ size = 28, className }: IsometricLogoProps) {
   const prefersReducedMotion = useReducedMotion();
 
-  // Cube dimensions for isometric view
   const cubeSize = size * 0.32;
   const w = cubeSize * 0.866; // Half width (cos 30°)
   const h = cubeSize * 0.5;   // Half height (sin 30°)
   const d = cubeSize * 0.5;   // Depth
 
-  // Define the three faces of a cube as path data
   const topFace = `M 0,${-d} L ${w},0 L 0,${h} L ${-w},0 Z`;
   const leftFace = `M ${-w},0 L 0,${h} L 0,${h + d} L ${-w},${d} Z`;
   const rightFace = `M ${w},0 L 0,${h} L 0,${h + d} L ${w},${d} Z`;
 
-  // Three positions in a triangle formation (isometric)
   const positions = [
     { x: 0, y: 0 },                    // center-bottom
     { x: -w * 1.2, y: -(h + d) },      // top-left
     { x: w * 1.2, y: -(h + d) },       // top-right
   ];
 
-  // Each cube cycles through all 3 positions
-  // Cube 0: 0 -> 1 -> 2 -> 0
-  // Cube 1: 1 -> 2 -> 0 -> 1
-  // Cube 2: 2 -> 0 -> 1 -> 2
   const getPath = (startIndex: number) => {
     const path = [];
     for (let i = 0; i <= 3; i++) {
@@ -47,7 +40,6 @@ export function IsometricLogo({ size = 28, className }: IsometricLogoProps) {
     { startIndex: 2, delay: 0 },
   ];
 
-  // ViewBox calculation
   const padding = cubeSize * 1.5;
   const viewBox = `${-padding} ${-padding - (h + d)} ${padding * 2} ${padding * 2}`;
 
@@ -66,7 +58,6 @@ export function IsometricLogo({ size = 28, className }: IsometricLogoProps) {
         const xKeyframes = path.map((p) => p.x);
         const yKeyframes = path.map((p) => p.y);
 
-        // Static position for reduced motion
         const staticPos = positions[cube.startIndex];
 
         return (
@@ -92,11 +83,8 @@ export function IsometricLogo({ size = 28, className }: IsometricLogoProps) {
                   }
             }
           >
-            {/* Left face */}
             <path d={leftFace} fill="currentColor" opacity={0.55} />
-            {/* Right face */}
             <path d={rightFace} fill="currentColor" opacity={0.75} />
-            {/* Top face */}
             <path d={topFace} fill="currentColor" opacity={0.35} />
           </motion.g>
         );

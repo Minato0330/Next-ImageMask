@@ -137,7 +137,6 @@ export function GradientPreviewBar({
   return (
     <div className="space-y-1">
       <span className="text-xs text-muted-foreground">Preview</span>
-      {/* Bar container */}
       <div className="relative pb-5">
         <div
           ref={barRef}
@@ -146,7 +145,6 @@ export function GradientPreviewBar({
           onMouseMove={handleBarMouseMove}
           onMouseLeave={handleBarMouseLeave}
         >
-          {/* Checkerboard background */}
           <span
             className="absolute inset-0"
             style={{
@@ -157,10 +155,8 @@ export function GradientPreviewBar({
               opacity: 0.4,
             }}
           />
-          {/* Gradient overlay */}
           <span className="absolute inset-0" style={{ background: previewGradient }} />
 
-          {/* Ghost hover preview */}
           {hoverPos !== null && !draggingRef.current && hoverInterp && (
             <div
               className="pointer-events-none absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -177,7 +173,6 @@ export function GradientPreviewBar({
           )}
         </div>
 
-        {/* Stop handles - positioned below the bar */}
         {gradient.stops.map((stop) => {
           const isSelected = stop.id === selectedStopId;
           const isDragging = draggingRef.current === stop.id;
@@ -195,7 +190,6 @@ export function GradientPreviewBar({
                 zIndex: isDragging ? 20 : isSelected ? 10 : 1,
               }}
             >
-              {/* Triangle pointer */}
               <div
                 className="mx-auto h-0 w-0"
                 style={{
@@ -205,7 +199,6 @@ export function GradientPreviewBar({
                   opacity: isSelected ? 1 : 0.4,
                 }}
               />
-              {/* Circle handle */}
               <div
                 role="slider"
                 tabIndex={0}
@@ -236,7 +229,6 @@ export function GradientPreviewBar({
                 onKeyDown={handleKeyDown(stop.id)}
               />
 
-              {/* Position tooltip during drag */}
               {isDragging && dragPos !== null && (
                 <div className="absolute left-1/2 top-full mt-1 -translate-x-1/2 rounded bg-foreground px-1.5 py-0.5 text-[10px] font-mono text-background whitespace-nowrap">
                   {dragPos}%

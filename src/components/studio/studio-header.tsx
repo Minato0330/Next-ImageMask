@@ -15,10 +15,8 @@ import { useClipboard } from "@/hooks/use-clipboard";
 import { useCssGenerator } from "@/hooks/use-css-generator";
 import { usePlatform } from "@/hooks/use-platform";
 import { useState, useEffect } from "react";
+import { Socials } from "@/components/socials";
 
-/* ------------------------------------------------------------------ */
-/*  TooltipButton — reduces per-button boilerplate                    */
-/* ------------------------------------------------------------------ */
 function TooltipButton({
   icon: Icon,
   tooltip,
@@ -47,9 +45,6 @@ function TooltipButton({
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  ThemeToggleButton — animated Sun/Moon swap                        */
-/* ------------------------------------------------------------------ */
 function ThemeToggleButton() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -78,9 +73,6 @@ function ThemeToggleButton() {
   );
 }
 
-/* ------------------------------------------------------------------ */
-/*  StudioHeader                                                      */
-/* ------------------------------------------------------------------ */
 export function StudioHeader() {
   const undo = useStudioStore((s) => s.undo);
   const redo = useStudioStore((s) => s.redo);
@@ -96,12 +88,10 @@ export function StudioHeader() {
       data-slot="studio-header"
       className="flex h-12 shrink-0 items-center justify-between border-b border-border/50 bg-background px-4"
     >
-      {/* ---- Brand ---- */}
       <span className="font-mono text-lg font-semibold tracking-tight text-foreground">
         maskit
       </span>
 
-      {/* ---- Actions ---- */}
       <div className="flex items-center gap-0.5">
         <TooltipProvider delayDuration={300}>
           <TooltipButton
@@ -130,9 +120,11 @@ export function StudioHeader() {
             onClick={() => openExportDialog()}
           />
 
-          <Separator orientation="vertical" className="mx-1.5 h-4" />
-
           <ThemeToggleButton />
+
+          <Separator orientation="vertical" className="mx-1.5 h-4" />
+          
+          <Socials />
         </TooltipProvider>
       </div>
     </header>

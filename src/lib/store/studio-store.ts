@@ -13,17 +13,11 @@ import type {
 } from "../types";
 import { createDefaultMaskLayer, generateId, createInitialState } from "./initial-state";
 import { MAX_HISTORY } from "../constants";
-
-// ---------------------------------------------------------------------------
-// History helpers
-// ---------------------------------------------------------------------------
-
 interface History {
   past: StudioState[];
   future: StudioState[];
 }
 
-/** Push the current state onto the history stack before applying an update. */
 function withHistory(
   set: (fn: (s: StudioStoreState) => Partial<StudioStoreState>) => void,
   get: () => StudioStoreState,
@@ -42,17 +36,12 @@ function withHistory(
   });
 }
 
-/** Apply an update that skips history (UI-only state). */
 function withoutHistory(
   set: (fn: (s: StudioStoreState) => Partial<StudioStoreState>) => void,
   updater: (state: StudioState) => Partial<StudioState>
 ) {
   set((s) => updater(selectStudioState(s)));
 }
-
-// ---------------------------------------------------------------------------
-// Public selector – extracts the plain StudioState from the store
-// ---------------------------------------------------------------------------
 
 export function selectStudioState(s: StudioStoreState): StudioState {
   return {
@@ -66,10 +55,6 @@ export function selectStudioState(s: StudioStoreState): StudioState {
     ui: s.ui,
   };
 }
-
-// ---------------------------------------------------------------------------
-// Store interface
-// ---------------------------------------------------------------------------
 
 export interface StudioStoreState extends StudioState {
   _history: History;
@@ -124,15 +109,10 @@ export interface StudioStoreState extends StudioState {
   canRedo: () => boolean;
 }
 
-// ---------------------------------------------------------------------------
-// Store implementation
-// ---------------------------------------------------------------------------
-
 export const useStudioStoreBase = create<StudioStoreState>()((set, get) => {
   const initial = createInitialState();
 
   return {
-    // --- initial data ---
     ...initial,
     _history: { past: [], future: [] },
 
@@ -298,7 +278,6 @@ export const useStudioStoreBase = create<StudioStoreState>()((set, get) => {
       withoutHistory(set, (s) => ({ ui: { ...s.ui, exportDialogOpen: false } }));
     },
 
-    // === Presets ===
     applyPreset: (preset) => {
       withHistory(set, get, (s) => ({
         ...(preset.maskLayers !== undefined && {
@@ -311,12 +290,10 @@ export const useStudioStoreBase = create<StudioStoreState>()((set, get) => {
       }));
     },
 
-    // === Restore full state ===
     restoreState: (state) => {
       withHistory(set, get, () => state);
     },
 
-    // === Undo / Redo ===
     undo: () => {
       set((s) => {
         if (s._history.past.length === 0) return s;
