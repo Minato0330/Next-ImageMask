@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Maskit — CSS Mask Effects Studio",
+  title: "Next-ImageMask — CSS Mask Effects Studio",
   description:
     "Professional CSS mask, filter, and clip-path studio with real-time preview and code generation. Create stunning visual effects with gradients, blend modes, and export production-ready CSS.",
   keywords: [
@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     "image effects",
     "blend modes",
   ],
-  authors: [{ name: "Maskit" }],
-  creator: "Maskit",
-  metadataBase: new URL("https://maskit.sachi.dev"),
+  authors: [{ name: "Next-ImageMask" }],
+  creator: "Next-ImageMask",
+  metadataBase: new URL("https://Next-ImageMask.sachi.dev"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://maskit.sachi.dev",
-    siteName: "Maskit",
-    title: "Maskit — CSS Mask Effects Studio",
+    url: "https://Next-ImageMask.sachi.dev",
+    siteName: "Next-ImageMask",
+    title: "Next-ImageMask — CSS Mask Effects Studio",
     description:
       "Professional CSS mask, filter, and clip-path studio with real-time preview and code generation. Create stunning visual effects with gradients, blend modes, and export production-ready CSS.",
     images: [
@@ -46,17 +46,17 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Maskit — CSS Mask Effects Studio",
+        alt: "Next-ImageMask — CSS Mask Effects Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maskit — CSS Mask Effects Studio",
+    title: "Next-ImageMask — CSS Mask Effects Studio",
     description:
       "Professional CSS mask, filter, and clip-path studio with real-time preview and code generation.",
     images: ["/og.png"],
-    creator: "@maskit",
+    creator: "@Next-ImageMask",
   },
   robots: {
     index: true,

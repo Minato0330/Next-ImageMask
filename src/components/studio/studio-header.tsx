@@ -89,7 +89,7 @@ export function StudioHeader() {
       className="flex h-12 shrink-0 items-center justify-between border-b border-border/50 bg-background px-4"
     >
       <span className="font-mono text-lg font-semibold tracking-tight text-foreground">
-        maskit
+        ImageMask
       </span>
 
       <div className="flex items-center gap-0.5">
