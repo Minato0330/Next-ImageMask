@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { motion } from "motion/react";
 
-interface NextImageMaskLogoProps {
+interface MaskitLogoProps {
   size?: number;
   animate?: boolean;
   className?: string;
@@ -17,11 +17,11 @@ const M_PATHS = [
   "M 20 24 L 20 4 L 25 4 L 25 24 Z",
 ];
 
-export function NextImageMaskLogo({
+export function MaskitLogo({
   size = 24,
   animate = true,
   className,
-}: NextImageMaskLogoProps) {
+}: MaskitLogoProps) {
   const id = useId();
   const clipId = `mask-reveal${id}`;
   const shapeClipId = `mask-shape${id}`;
@@ -36,7 +36,7 @@ export function NextImageMaskLogo({
       className={className}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      aria-label="NextImageMask logo"
+      aria-label="Maskit logo"
       role="img"
     >
       <defs>
