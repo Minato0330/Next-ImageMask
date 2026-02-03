@@ -1,4 +1,4 @@
-# Maskit
+# Next-ImageMask
 
 A professional CSS mask effects studio with real-time preview and code generation. Create stunning visual effects using CSS masks, filters, clip-paths, and gradients.
 
@@ -36,8 +36,8 @@ A professional CSS mask effects studio with real-time preview and code generatio
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/maskit.git
-cd maskit
+git clone https://github.com/yourusername/Next-ImageMask.git
+cd Next-ImageMask
 
 # Install dependencies
 pnpm install

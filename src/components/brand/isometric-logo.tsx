@@ -49,7 +49,7 @@ export function IsometricLogo({ size = 28, className }: IsometricLogoProps) {
       width={size}
       height={size}
       className={className}
-      aria-label="Maskit logo"
+      aria-label="Next-ImageMask logo"
       role="img"
       style={{ overflow: "visible" }}
     >
